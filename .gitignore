@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Para nao enviar variaveis do sistema
+.env
+
+# Para n enviar os metadados no vscode
+.vscode/
