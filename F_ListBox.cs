@@ -29,7 +29,7 @@ namespace Componetes
         private void button2_Click(object sender, EventArgs e)
         {
             Carros.RemoveAt(Lb_Tudo.SelectedIndex);
-            UpdateDataSouce(Lb_Tudo, Carros);
+            UpdateDataSource(Lb_Tudo, Carros);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace Componetes
             if (!String.IsNullOrWhiteSpace(Tb_Adicionar.Text))
             {
                 Carros.Add(Tb_Adicionar.Text);
-                UpdateDataSouce(Lb_Tudo,Carros);
+                UpdateDataSource(Lb_Tudo,Carros);
                 Tb_Adicionar.Clear();
                 Tb_Adicionar.Focus();
 
@@ -71,7 +71,7 @@ namespace Componetes
         private void btn_clear_Click(object sender, EventArgs e)
         {
             Carros.Clear();
-            UpdateDataSouce(Lb_Tudo, Carros);
+            UpdateDataSource(Lb_Tudo, Carros);
         }
     }
 }
