@@ -29,14 +29,22 @@ namespace Componetes
         private void button2_Click(object sender, EventArgs e)
         {
             Carros.RemoveAt(Lb_Tudo.SelectedIndex);
-            UpdateDataSouce();
+            UpdateDataSouce(Lb_Tudo, Carros);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string item = Carros[Lb_Tudo.SelectedIndex];
-            MessageBox.Show(item);
-            Tb_Adicionar.Focus();
+            try
+            {
+                string item = Carros[Lb_Tudo.SelectedIndex];
+                MessageBox.Show(item);
+                Tb_Adicionar.Focus();
+
+            }
+            catch
+            {
+                MessageBox.Show("tem que ter algum item para poder ser exibido!");
+            }
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -44,7 +52,7 @@ namespace Componetes
             if (!String.IsNullOrWhiteSpace(Tb_Adicionar.Text))
             {
                 Carros.Add(Tb_Adicionar.Text);
-                UpdateDataSouce();
+                UpdateDataSouce(Lb_Tudo,Carros);
                 Tb_Adicionar.Clear();
                 Tb_Adicionar.Focus();
 
@@ -54,16 +62,16 @@ namespace Componetes
                 MessageBox.Show("safadinho, ta tentando quebrar meu sistema ne");
             }
         }
-        private void UpdateDataSouce()
+        private void UpdateDataSource(ListBox listbox,List<String> list)
         {
-            Lb_Tudo.DataSource = null;
-            Lb_Tudo.DataSource = Carros;
+            listbox.DataSource = null;
+            listbox.DataSource = list;
         }
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
             Carros.Clear();
-            UpdateDataSouce();
+            UpdateDataSouce(Lb_Tudo, Carros);
         }
     }
 }
